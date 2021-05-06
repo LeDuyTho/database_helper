@@ -2,7 +2,7 @@ name: database_helper
 description: Simple Database Helper for sqflite
 version: 0.0.1
 author: ThoLeDuy
-homepage:
+homepage: https://github.com/LeDuyTho/database_helper
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
