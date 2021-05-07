@@ -1,6 +1,6 @@
 name: database_helper
 description: Simple Database Helper for sqflite
-version: 0.0.1
+version: 0.0.2
 author: ThoLeDuy
 homepage: https://github.com/LeDuyTho/database_helper
 
