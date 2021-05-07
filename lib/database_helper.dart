@@ -12,6 +12,7 @@ abstract class DatabaseHelper {
   //return await DatabaseCreator.instance.getDatabaseFromAsset("mydb.db");
   Future<Database> getDb();
 
+  /// Print data
   void printAllRows(String tableName) async {
     final allRows = await (await getDb()).query(tableName);
     print('query all rows:');
@@ -55,6 +56,7 @@ abstract class DatabaseHelper {
         .delete(tableName, where: '$columnName = ?', whereArgs: arguments);
   }
 
+  /// Delete by id
   Future<int> deleteById(int id, String tableName, String columnName) async {
     return await (await getDb())
         .delete(tableName, where: '$columnName = ?', whereArgs: [id]);

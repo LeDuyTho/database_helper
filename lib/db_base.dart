@@ -1,3 +1,4 @@
+/// Database
 class DatabaseInfo {
   String _databaseName;
   int _databaseVersion;
@@ -12,6 +13,7 @@ class DatabaseInfo {
   int get databaseVersion => _databaseVersion;
 }
 
+/// Table
 class TableInfo {
   String tableName;
   List<ColumnInfo> columns;
@@ -40,7 +42,7 @@ class TableInfo {
 
       if (i == 0)
         sFields =
-        'CREATE TABLE $tableName (${col.columnName}$type$primary$nullValue';
+            'CREATE TABLE $tableName (${col.columnName}$type$primary$nullValue';
       else
         sFields = ',${col.columnName}$type$primary$nullValue';
 
@@ -53,6 +55,7 @@ class TableInfo {
   }
 }
 
+/// Column
 class ColumnInfo {
   String columnName;
   SqliteType columnType;
@@ -60,11 +63,11 @@ class ColumnInfo {
   bool isPrimaryKey;
 
   ColumnInfo(
-      this.columnName,
-      this.columnType, {
-        this.isNull = true,
-        this.isPrimaryKey = false,
-      });
+    this.columnName,
+    this.columnType, {
+    this.isNull = true,
+    this.isPrimaryKey = false,
+  });
 
   String get type {
     switch (columnType) {
@@ -72,40 +75,23 @@ class ColumnInfo {
         return 'INTEGER';
       case SqliteType.TEXT:
         return 'TEXT';
-      case SqliteType.FLOAT:
-        return 'FLOAT';
-      case SqliteType.DOUBLE:
-        return 'DOUBLE';
-      case SqliteType.DATE:
-        return 'DATE';
-      case SqliteType.DATETIME:
-        return 'DATETIME';
-      case SqliteType.BOOLEAN:
-        return 'BOOLEAN';
-      case SqliteType.DECIMAL2:
-        return 'DECIMAL(10,2)';
-      case SqliteType.DECIMAL3:
-        return 'DECIMAL(10,3)';
-      case SqliteType.DECIMAL_LAT:
-        return 'DECIMAL(8,6)';
-      case SqliteType.DECIMAL_LNG:
-        return 'DECIMAL(9,6)';
+      case SqliteType.REAL:
+        return 'REAL';
+      case SqliteType.NUMERIC:
+        return 'NUMERIC';
+      case SqliteType.BLOB:
+        return 'BLOB';
       default:
         return '';
     }
   }
 }
 
+/// Sqlite data type
 enum SqliteType {
   INTEGER,
   TEXT,
-  FLOAT,
-  DOUBLE,
-  DATE,
-  DATETIME,
-  BOOLEAN,
-  DECIMAL2,
-  DECIMAL3,
-  DECIMAL_LAT,
-  DECIMAL_LNG
+  REAL,
+  NUMERIC,
+  BLOB,
 }

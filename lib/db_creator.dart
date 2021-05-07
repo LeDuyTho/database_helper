@@ -18,7 +18,7 @@ class DatabaseCreator {
 
   static final DatabaseCreator instance = DatabaseCreator._privateConstructor();
 
-  DatabaseInfo _dbInfo;
+  //DatabaseInfo _dbInfo;
   TableInfo _tblInfo;
 
   // only have a single app-wide reference to the database
@@ -28,7 +28,7 @@ class DatabaseCreator {
   Future<Database> getDatabase(DatabaseInfo dbInfo, TableInfo tblInfo) async {
     if (_database != null) return _database;
     // lazily instantiate the db the first time it is accessed
-    _dbInfo = dbInfo;
+    //_dbInfo = dbInfo;
     _tblInfo = tblInfo;
     _database = await _initDatabase(dbInfo, tblInfo);
     return _database;
